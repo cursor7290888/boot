@@ -15,6 +15,10 @@ import org.springframework.http.converter.HttpMessageConverter;
 @MapperScan("com.baizhi.boot.dao")
 @ComponentScan(basePackages = "com.baizhi")
 public class BootApplication {
+    
+    public static void main(String[] args) {
+        SpringApplication.run(BootApplication.class, args);
+    }
     @Bean
     public HttpMessageConverters fastJsonHttpMessageConverters() {
         // 1. 需要定义一个converter转换消息的对象
@@ -26,9 +30,6 @@ public class BootApplication {
         fasHttpMessageConverter.setFastJsonConfig(fastJsonConfig);
         HttpMessageConverter<?> converter = fasHttpMessageConverter;
         return new HttpMessageConverters(converter);
-    }
-    public static void main(String[] args) {
-        SpringApplication.run(BootApplication.class, args);
     }
 
 }
